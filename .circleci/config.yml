@@ -46,6 +46,9 @@ workflows:
           requires: [format, test]
           steps:
             - run: npx nx affected --base=$NX_BASE --head=$NX_HEAD --target=build --parallel=3
+            - persist_to_workspace:
+                root: .
+                paths: [dist]
       - nx:
           name: release/rc
           type: approval
@@ -53,4 +56,6 @@ workflows:
           branches:
             only: next
           steps:
+            - attach_to_workspace:
+                at: dist
             - run: yarn lerna publish --yes --conventional-prerelease

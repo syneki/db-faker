@@ -46,3 +46,11 @@ workflows:
           requires: [format, test]
           steps:
             - run: npx nx affected --base=$NX_BASE --head=$NX_HEAD --target=build --parallel=3
+      - nx:
+          name: release/rc
+          type: approval
+          requires: [build]
+          branches:
+            only: dev
+          steps:
+            - run: echo 'TEST'

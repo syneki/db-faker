@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.1.0-alpha.0 (2022-09-10)
+
+
+### Features
+
+* initial commit ([dddc1bc](https://github.com/syneki/db-faker/commit/dddc1bca8ba14ad32c263c884e2f4f9dd737ea51))
+
+
+
+
+
 ## 0.2.1-alpha.0 (2022-09-10)
 
 ### Bug Fixes

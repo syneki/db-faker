@@ -51,6 +51,6 @@ workflows:
           type: approval
           requires: [build]
           branches:
-            only: dev
+            only: next
           steps:
-            - run: echo 'TEST'
+            - run: yarn lerna publish --yes --conventional-prerelease

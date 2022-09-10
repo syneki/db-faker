@@ -1,6 +1,6 @@
 {
   "name": "@db-faker/anonymizer",
-  "version": "0.1.0-alpha.0",
+  "version": "0.1.0-alpha.1",
   "type": "commonjs",
   "bin": {
     "anonymizer": "src/cli.js"
@@ -10,7 +10,7 @@
     "directory": "../../dist/packages/anonymizer"
   },
   "dependencies": {
-    "@db-faker/config-loader": "^0.1.0-alpha.0",
+    "@db-faker/config-loader": "^0.1.0-alpha.1",
     "@faker-js/faker": "^7.5.0",
     "commander": "^9.4.0",
     "csv": "^6.2.0",

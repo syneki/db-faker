@@ -47,7 +47,7 @@ workflows:
           steps:
             - run: npx nx affected --base=$NX_BASE --head=$NX_HEAD --target=build --parallel=3
             - persist_to_workspace:
-                root: workspace
+                root: .
                 paths: [dist]
       - approve/rc:
           name: approve/rc

@@ -1,0 +1,48 @@
+version: 2.1
+
+orbs:
+  nx: nrwl/nx@1.5.1
+
+jobs:
+  nx:
+    parameters:
+      steps:
+        type: steps
+        default: []
+    docker:
+      - image: cimg/node:lts-browsers
+    steps:
+      - checkout
+      - restore_cache:
+          name: Restore Yarn Package Cache
+          keys:
+            - yarn-packages-{{ checksum "yarn.lock" }}
+      - run:
+          name: Install Dependencies
+          command: yarn install --frozen-lockfile --cache-folder ~/.cache/yarn
+      - nx/set-shas
+      - steps: << parameters.steps >>
+      - save_cache:
+          name: Save Yarn Package Cache
+          key: yarn-packages-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/.cache/yarn
+
+workflows:
+  build:
+    jobs:
+      - nx:
+          name: format
+          steps:
+            - run: npx nx workspace-lint
+            - run: npx nx format:check
+      - nx:
+          name: test
+          steps:
+            - run: npx nx affected --base=$NX_BASE --head=$NX_HEAD --target=lint --parallel=3
+            - run: npx nx affected --base=$NX_BASE --head=$NX_HEAD --target=test --parallel=3 --ci --code-coverage
+      - nx:
+          name: build
+          requires: [format, test]
+          steps:
+            - run: npx nx affected --base=$NX_BASE --head=$NX_HEAD --target=build --parallel=3

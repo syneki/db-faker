@@ -1,0 +1,27 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2017", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "esModuleInterop": true,
+    "paths": {
+      "@db-faker/anonymizer": ["packages/anonymizer/src/index.ts"],
+      "@db-faker/cli": ["packages/db-faker/src/index.ts"],
+      "@db-faker/config-loader": ["packages/config-loader/src/index.ts"],
+      "@db-faker/dumper": ["packages/dumper/src/index.ts"],
+      "@db-faker/test": ["packages/test/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

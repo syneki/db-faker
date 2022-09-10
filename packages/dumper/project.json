@@ -1,0 +1,47 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/dumper",
+  "projectType": "library",
+  "targets": {
+    "build-base": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/dumper",
+        "main": "packages/dumper/src/index.ts",
+        "tsConfig": "packages/dumper/tsconfig.lib.json",
+        "assets": ["packages/dumper/*.md"]
+      }
+    },
+    "build": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": ["nx build-base dumper", "cp LICENSE dist/packages/dumper"],
+        "parallel": false
+      }
+    },
+    "docs": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "typedoc --tsconfig tsconfig.lib.json --out docs src/index.ts",
+        "cwd": "packages/dumper"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/dumper/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/packages/dumper"],
+      "options": {
+        "jestConfig": "packages/dumper/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

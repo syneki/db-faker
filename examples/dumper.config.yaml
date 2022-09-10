@@ -1,0 +1,24 @@
+dumper:
+  # Connection to the source database
+  # Must be a valid Knex configuration
+  connection:
+    client: 'pg' # Make sure that you have this dependency installed globally
+    connection: postgres://root:root@localhost:5432/public
+
+  # List of tables that will be dumped
+  tables:
+    - name: users
+      subset:
+        limit: 1000
+      relations:
+        - name: profiles
+          from: id
+          to: user_id
+        - name: accounts
+          from: id
+          to: user_id
+    - name: products
+      subset:
+        limit: 100
+  # Output directory where CSV files will be stored
+  outputDirectory: tmp

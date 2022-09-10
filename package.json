@@ -1,0 +1,66 @@
+{
+  "name": "db-faker",
+  "version": "0.0.0",
+  "license": "MIT",
+  "scripts": {
+    "build": "nx run-many --target=build --all --parallel 8",
+    "local-registry": "./scripts/local-registry.sh",
+    "local-release": "ts-node -P ./scripts/tsconfig.scripts.json ./scripts/local-release",
+    "prepare": "husky install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/syneki/db-faker"
+  },
+  "private": true,
+  "publishConfig": {
+    "access": "public",
+    "directory": "dist/packages"
+  },
+  "devDependencies": {
+    "@nrwl/cli": "14.6.5",
+    "@nrwl/eslint-plugin-nx": "14.6.5",
+    "@nrwl/jest": "14.6.5",
+    "@nrwl/js": "14.6.5",
+    "@nrwl/linter": "14.6.5",
+    "@nrwl/node": "^14.6.5",
+    "@nrwl/nx-cloud": "latest",
+    "@nrwl/workspace": "14.6.5",
+    "@types/jest": "28.1.1",
+    "@types/listr": "^0.14.4",
+    "@types/lodash": "^4.14.184",
+    "@types/node": "16.11.7",
+    "@types/pg": "^8.6.5",
+    "@typescript-eslint/eslint-plugin": "~5.33.1",
+    "@typescript-eslint/parser": "~5.33.1",
+    "eslint": "~8.15.0",
+    "eslint-config-prettier": "8.1.0",
+    "husky": "^8.0.1",
+    "jest": "28.1.1",
+    "jest-environment-jsdom": "28.1.1",
+    "lerna": "^5.5.0",
+    "nx": "14.6.5",
+    "prettier": "^2.6.2",
+    "ts-jest": "28.0.5",
+    "ts-node": "10.9.1",
+    "typedoc": "^0.23.14",
+    "typescript": "~4.7.2",
+    "verdaccio": "^5.15.3"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^7.5.0",
+    "cli-spinners": "^2.7.0",
+    "commander": "^9.4.0",
+    "csv": "^6.2.0",
+    "knex": "^2.3.0",
+    "listr": "^0.14.3",
+    "lodash": "^4.17.21",
+    "pg": "^8.8.0",
+    "tslib": "^2.3.0",
+    "yaml": "^2.1.1",
+    "yup": "^0.32.11"
+  },
+  "workspaces": [
+    "packages/*"
+  ]
+}

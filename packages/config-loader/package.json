@@ -1,0 +1,15 @@
+{
+  "name": "@db-faker/config-loader",
+  "version": "0.0.1",
+  "type": "commonjs",
+  "publishConfig": {
+    "access": "public",
+    "directory": "../../dist/packages/config-loader"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21",
+    "tslib": "^2.3.0",
+    "yaml": "^2.1.1"
+  },
+  "gitHead": "3243dba5a0237c6b95c1812f3e2829e2f45bab72"
+}

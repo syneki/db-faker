@@ -1,0 +1,10 @@
+{
+  "$schema": "./node_modules/nx/schemas/workspace-schema.json",
+  "version": 2,
+  "projects": {
+    "anonymizer": "packages/anonymizer",
+    "config-loader": "packages/config-loader",
+    "db-faker": "packages/db-faker",
+    "dumper": "packages/dumper"
+  }
+}

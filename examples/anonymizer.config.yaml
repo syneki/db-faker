@@ -1,0 +1,18 @@
+anonymizer:
+  # CSV files to anonymize
+  files: ['data/users.csv', 'data/profile.csv']
+
+  # Anonymize columns by table (name of table muse be the filename without extension)
+  tables:
+    - name: users
+      columns:
+        - name: prenom
+          engine: name.firstName # Must be a fakerjs function
+
+  # Columns to anonymize over every file
+  columns:
+    - name: email
+      engine: internet.email # Must be a fakerjs function
+
+  # Directory where the anonymized files will be exported
+  outputDirectory: tmp/output

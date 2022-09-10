@@ -50,6 +50,7 @@ workflows:
                 root: .
                 paths: [dist]
       - approve/rc:
+          name: approve/rc
           type: approval
           requires: [build]
           branches:
@@ -60,4 +61,8 @@ workflows:
           steps:
             - attach_workspace:
                 at: dist
+            - run: |
+              npm set email contact@syneki.com
+              npm set //registry.npmjs.org/:_authToken $NPM_TOKEN
+              npm set //registry.yarnpkg.com/:_authToken $NPM_TOKEN
             - run: yarn lerna publish --yes --conventional-prerelease

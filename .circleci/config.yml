@@ -61,7 +61,11 @@ workflows:
           steps:
             - attach_workspace:
                 at: dist
+            - add_ssh_keys:
+                fingerprints:
+                  - 72:d2:a2:4f:b0:83:1c:69:03:51:20:d8:6d:7e:05:59
             - run:
+                name: Setup Git & NPM
                 command: |
                   npm set email contact@syneki.com
                   npm set //registry.npmjs.org/:_authToken $NPM_TOKEN

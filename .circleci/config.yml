@@ -66,4 +66,6 @@ workflows:
                   npm set email contact@syneki.com
                   npm set //registry.npmjs.org/:_authToken $NPM_TOKEN
                   npm set //registry.yarnpkg.com/:_authToken $NPM_TOKEN
+                  git config --global user.email "contact@syneki.com"
+                  git config --global user.name "Syneki"
             - run: yarn lerna publish --yes --conventional-prerelease

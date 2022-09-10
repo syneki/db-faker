@@ -58,6 +58,6 @@ workflows:
           name: release/rc
           requires: [approve/rc]
           steps:
-            - attach_to_workspace:
+            - attach_workspace:
                 at: dist
             - run: yarn lerna publish --yes --conventional-prerelease

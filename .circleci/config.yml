@@ -72,4 +72,4 @@ workflows:
                   npm set //registry.yarnpkg.com/:_authToken $NPM_TOKEN
                   git config --global user.email "contact@syneki.com"
                   git config --global user.name "Syneki"
-            - run: yarn lerna publish --yes --conventional-prerelease
+            - run: yarn lerna publish --yes --conventional-prerelease --preid rc

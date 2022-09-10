@@ -49,12 +49,14 @@ workflows:
             - persist_to_workspace:
                 root: .
                 paths: [dist]
-      - nx:
-          name: release/rc
+      - approve/rc:
           type: approval
           requires: [build]
           branches:
             only: next
+      - nx:
+          name: release/rc
+          requires: [approve/rc]
           steps:
             - attach_to_workspace:
                 at: dist

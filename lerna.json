@@ -6,7 +6,7 @@
   "access": "public",
   "command": {
     "version": {
-      "allowBranch": ["main"],
+      "allowBranch": ["main", "next"],
       "conventionalCommits": true
     }
   }

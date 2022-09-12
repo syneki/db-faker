@@ -7,12 +7,12 @@ export const DumperConfigSchema = object({
 });
 
 export const AnonymizerConfigSchema = object({
-  tables: array().required(),
+  tables: array(anonymizer.TableConfigSchema).optional(),
   columns: array(anonymizer.ColumnConfigSchema).optional(),
 });
 
 export const ConfigSchema = object({
-  connection: mixed<Knex.Config>().required(),
+  source: mixed<Knex.Config>().required(),
   dumper: DumperConfigSchema,
   anonymizer: AnonymizerConfigSchema,
   outputDirectory: string().required().default('tmp'),

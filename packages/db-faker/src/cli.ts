@@ -14,7 +14,7 @@ program
   .option('-c, --config <configFile>', 'Path to the config file', 'config.yaml')
   .action((options) => {
     const config = loadConfig(options.config);
-    const dbFaker = new DBFaker(config.get(''));
+    const dbFaker = new DBFaker(config.config as any);
 
     dbFaker.run().then(() => process.exit());
   });

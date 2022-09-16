@@ -1,0 +1,24 @@
+{
+  "name": "@db-faker/converter",
+  "version": "0.1.0-alpha.1",
+  "type": "commonjs",
+  "bin": {
+    "converter": "src/cli.js"
+  },
+  "publishConfig": {
+    "access": "public",
+    "directory": "../../dist/packages/converter"
+  },
+  "dependencies": {
+    "@db-faker/config-loader": "^0.1.0-alpha.1",
+    "@faker-js/faker": "^7.5.0",
+    "commander": "^9.4.0",
+    "csv": "^6.2.0",
+    "listr": "^0.14.3",
+    "lodash": "^4.17.21",
+    "tslib": "^2.3.0",
+    "yaml": "^2.1.1",
+    "yup": "^0.32.11"
+  },
+  "gitHead": "da4d23b2f15d5e728cd3b2ba8ea262b7232a8ad6"
+}

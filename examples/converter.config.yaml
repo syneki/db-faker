@@ -1,0 +1,8 @@
+converter:
+  input:
+    type: 'csv'
+    files: ['tmp/anonymized/br_users.csv', 'tmp/anonymized/basket.csv']
+  output:
+    type: 'sql-insert'
+    path: 'tmp/output'
+    client: 'pg'

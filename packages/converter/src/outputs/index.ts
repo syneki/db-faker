@@ -1,8 +1,8 @@
-import { AbstractOutput } from "./abstract-output";
-import { SqlInsertOutput } from "./sql-insert.output";
+import { AbstractOutput } from './abstract-output';
+import { SqlInsertOutput } from './sql-insert.output';
 
 export const OUTPUTS: {
-    [name: string]: new (...args: any) => AbstractOutput
+  [name: string]: new (...args: any) => AbstractOutput;
 } = {
-    'sql-insert': SqlInsertOutput
-}
+  'sql-insert': SqlInsertOutput,
+};

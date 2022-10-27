@@ -1,9 +1,7 @@
 export type InputResult = {
-    [table: string]: any
-}
+  [table: string]: any;
+};
 
 export abstract class AbstractInput {
-
-    abstract run(): Promise<InputResult>; 
-
+  abstract run(): Promise<InputResult>;
 }

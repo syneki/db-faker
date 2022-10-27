@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
+    "dev": "nx run-many --target=build --all --parallel 8 -- --watch",
     "build": "nx run-many --target=build --all --parallel 8",
     "local-registry": "./scripts/local-registry.sh",
     "local-release": "ts-node -P ./scripts/tsconfig.scripts.json ./scripts/local-release",
@@ -63,7 +64,7 @@
     "yup": "^0.32.11"
   },
   "workspaces": [
-    "packages/*"
+    "dist/packages/*"
   ],
   "config": {
     "commitizen": {

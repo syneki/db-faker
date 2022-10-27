@@ -4,10 +4,7 @@ import { loadConfig } from '@db-faker/config-loader';
 import { program } from 'commander';
 import { Converter } from './converter';
 
-program
-  .name('converter')
-  .description('Convert databases')
-  .version('0.0.1');
+program.name('converter').description('Convert databases').version('0.0.1');
 
 program
   .command('convert')

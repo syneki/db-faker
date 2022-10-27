@@ -3,10 +3,11 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
+    "dev": "nx run-many --target=build --all --parallel 8 -- --watch",
     "build": "nx run-many --target=build --all --parallel 8",
     "local-registry": "./scripts/local-registry.sh",
     "local-release": "ts-node -P ./scripts/tsconfig.scripts.json ./scripts/local-release",
-    "prepare": "husky install"
+    "prepare": "is-ci || husky install"
   },
   "repository": {
     "type": "git",
@@ -33,9 +34,11 @@
     "@types/pg": "^8.6.5",
     "@typescript-eslint/eslint-plugin": "~5.33.1",
     "@typescript-eslint/parser": "~5.33.1",
+    "commitizen": "^4.2.5",
     "eslint": "~8.15.0",
     "eslint-config-prettier": "8.1.0",
     "husky": "^8.0.1",
+    "is-ci": "^3.0.1",
     "jest": "28.1.1",
     "jest-environment-jsdom": "28.1.1",
     "lerna": "^5.5.0",
@@ -61,6 +64,11 @@
     "yup": "^0.32.11"
   },
   "workspaces": [
-    "packages/*"
-  ]
+    "dist/packages/*"
+  ],
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  }
 }

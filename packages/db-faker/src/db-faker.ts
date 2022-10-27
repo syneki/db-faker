@@ -27,7 +27,7 @@ export class DBFaker extends Listr {
 
   runDumper(): Listr {
     this.dumper = new Dumper({
-      connection: this.config.connection,
+      connection: this.config.source,
       tables: this.config.dumper.tables,
       outputDirectory: path.join(this.config.outputDirectory, 'dump'),
     });
@@ -38,7 +38,8 @@ export class DBFaker extends Listr {
   runAnonymizer(): Listr {
     const files = fs
       .readdirSync(path.join(this.config.outputDirectory, 'dump'))
-      .filter((path) => path.match(/.+.csv$/));
+      .filter((path) => path.match(/.+.csv$/))
+      .map((file) => path.join(this.config.outputDirectory, 'dump', file));
 
     this.anonymizer = new Anonymizer({
       files,

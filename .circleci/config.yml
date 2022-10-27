@@ -46,3 +46,30 @@ workflows:
           requires: [format, test]
           steps:
             - run: npx nx affected --base=$NX_BASE --head=$NX_HEAD --target=build --parallel=3
+            - persist_to_workspace:
+                root: .
+                paths: [dist]
+      - approve/rc:
+          name: approve/rc
+          type: approval
+          requires: [build]
+          branches:
+            only: next
+      - nx:
+          name: release/rc
+          requires: [approve/rc]
+          steps:
+            - attach_workspace:
+                at: .
+            - add_ssh_keys:
+                fingerprints:
+                  - 72:d2:a2:4f:b0:83:1c:69:03:51:20:d8:6d:7e:05:59
+            - run:
+                name: Setup Git & NPM
+                command: |
+                  npm set email contact@syneki.com
+                  npm set //registry.npmjs.org/:_authToken $NPM_TOKEN
+                  npm set //registry.yarnpkg.com/:_authToken $NPM_TOKEN
+                  git config --global user.email "contact@syneki.com"
+                  git config --global user.name "Syneki"
+            - run: yarn lerna publish --yes --conventional-prerelease --preid rc

@@ -14,7 +14,7 @@ export const ConfigSchema = object({
   tables: array(TableConfigSchema).optional(),
   columns: array(ColumnConfigSchema).optional(),
   files: array().of(string().required()).required(),
-  outputDirectory: string().optional().default('tmp/output'),
+  outputDirectory: string().optional().default('tmp/anonymized'),
 });
 
 export type ColumnConfig = InferType<typeof ColumnConfigSchema>;
